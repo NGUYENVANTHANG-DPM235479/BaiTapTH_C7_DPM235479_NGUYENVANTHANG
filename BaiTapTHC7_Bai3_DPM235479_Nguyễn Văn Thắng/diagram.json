@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -79.8, "left": -170, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -38.4,
+      "left": -302.36,
+      "attrs": { "env": "micropython-20231005-v1.21.0" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -260.2,
+      "left": -46.2,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "bb1:tn.1", "black", [ "h-9.45", "v-172.8" ] ],
+    [ "esp:5V", "bb1:tp.1", "red", [ "h-19.05", "v-240" ] ],
+    [ "servo1:V+", "bb1:tp.16", "red", [ "v0" ] ],
+    [ "servo1:GND", "bb1:tn.15", "black", [ "v0" ] ],
+    [ "servo1:PWM", "bb1:21t.a", "orange", [ "v0" ] ],
+    [ "bb1:21t.e", "bb1:21b.f", "orange", [ "v0" ] ],
+    [ "esp:13", "bb1:21b.j", "orange", [ "h115.35", "v-38.4", "h230.4" ] ]
+  ],
+  "dependencies": {}
+}
